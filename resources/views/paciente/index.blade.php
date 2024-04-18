@@ -9,9 +9,11 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container text-center">>
         <hr>
-        <h1 id="title">PACIENTES</h1>
+        <span style=" background-color:green;">
+            <h1 id="title" style="text-align: center;">PACIENTES</h1>
+        </span>
         <hr>
         <a href="{{ route('pacientes.create')}}" class="btn btn-success"> Add </a>
         <table class="table">
@@ -27,8 +29,7 @@
                     <th scope="col">Email</th>
                 </tr>
             </thead>
+    </div>
 </body>
 
 </html>
-
-</div>

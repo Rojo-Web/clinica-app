@@ -98,10 +98,10 @@ class PacienteController extends Controller
         $paciente = paciente::find($id);
         $paciente->delete();
 
-        $comunas = DB::table('paciente')
+        $pacientes = DB::table('paciente')
         ->select('*')
         ->get();
 
-        return view('paciente.index',['paciente'=> $paciente]);
+        return view('paciente.index',['paciente'=> $pacientes]);
     }
 }

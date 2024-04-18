@@ -6,8 +6,14 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Http\\Controllers\\CitaController' => $baseDir . '/app/Http/Controllers/CitaController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
+    'App\\Http\\Controllers\\MedicoController' => $baseDir . '/app/Http/Controllers/MedicoController.php',
+    'App\\Http\\Controllers\\PacienteController' => $baseDir . '/app/Http/Controllers/PacienteController.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
+    'App\\Models\\cita' => $baseDir . '/app/Models/cita.php',
+    'App\\Models\\medico' => $baseDir . '/app/Models/medico.php',
+    'App\\Models\\paciente' => $baseDir . '/app/Models/paciente.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'Attribute' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
     'Brick\\Math\\BigDecimal' => $vendorDir . '/brick/math/src/BigDecimal.php',
@@ -2268,6 +2274,12 @@ return array(
     'Illuminate\\View\\ViewFinderInterface' => $vendorDir . '/laravel/framework/src/Illuminate/View/ViewFinderInterface.php',
     'Illuminate\\View\\ViewName' => $vendorDir . '/laravel/framework/src/Illuminate/View/ViewName.php',
     'Illuminate\\View\\ViewServiceProvider' => $vendorDir . '/laravel/framework/src/Illuminate/View/ViewServiceProvider.php',
+    'Laravel\\Breeze\\BreezeServiceProvider' => $vendorDir . '/laravel/breeze/src/BreezeServiceProvider.php',
+    'Laravel\\Breeze\\Console\\InstallCommand' => $vendorDir . '/laravel/breeze/src/Console/InstallCommand.php',
+    'Laravel\\Breeze\\Console\\InstallsApiStack' => $vendorDir . '/laravel/breeze/src/Console/InstallsApiStack.php',
+    'Laravel\\Breeze\\Console\\InstallsBladeStack' => $vendorDir . '/laravel/breeze/src/Console/InstallsBladeStack.php',
+    'Laravel\\Breeze\\Console\\InstallsInertiaStacks' => $vendorDir . '/laravel/breeze/src/Console/InstallsInertiaStacks.php',
+    'Laravel\\Breeze\\Console\\InstallsLivewireStack' => $vendorDir . '/laravel/breeze/src/Console/InstallsLivewireStack.php',
     'Laravel\\Prompts\\Concerns\\Colors' => $vendorDir . '/laravel/prompts/src/Concerns/Colors.php',
     'Laravel\\Prompts\\Concerns\\Cursor' => $vendorDir . '/laravel/prompts/src/Concerns/Cursor.php',
     'Laravel\\Prompts\\Concerns\\Erase' => $vendorDir . '/laravel/prompts/src/Concerns/Erase.php',

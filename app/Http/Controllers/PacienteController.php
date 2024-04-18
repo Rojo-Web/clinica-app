@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Models\paciente;
 
 class PacienteController extends Controller
 {
@@ -11,7 +13,9 @@ class PacienteController extends Controller
      */
     public function index()
     {
-        //
+        $pacientes = DB::table('pacientes')
+        ->select('*')->get();
+        return view('paciente.index',['pacientes' => $pacientes]);
     }
 
     /**
@@ -27,7 +31,22 @@ class PacienteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $paciente = new paciente();
+        $paciente->nombre = $request->nombre;
+        $paciente->apellido = $request->apellido;
+        $paciente->fecha_nacimiento = $request->fecha_nacimiento;
+        $paciente->genero = $request->genero;
+        $paciente->direccion = $request->direccion;
+        $paciente->telefono = $request->telefono;
+        $paciente->email = $request->email;
+        $paciente->id = $request->id;
+        $paciente->save();
+
+        $pacientes = DB::table('pacientes')
+            ->select('*')
+            ->get();
+
+        return view('paciente.index',['pacientes'=> $pacientes]);
     }
 
     /**
@@ -43,7 +62,8 @@ class PacienteController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $paciente = paciente::find($id);
+        return view('paciente.edit',['paciente'=> $paciente]);
     }
 
     /**
@@ -51,7 +71,23 @@ class PacienteController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $paciente = paciente::find($id);
+
+        $paciente->nombre = $request->nombre;
+        $paciente->apellido = $request->apellido;
+        $paciente->fecha_nacimiento = $request->fecha_nacimiento;
+        $paciente->genero = $request->genero;
+        $paciente->direccion = $request->direccion;
+        $paciente->telefono = $request->telefono;
+        $paciente->email = $request->email;
+        $paciente->id = $request->id;
+        $paciente->save();
+
+        $pacientes = DB::table('paciente')
+        ->select('*')
+        ->get();
+
+        return view('paciente.index',['pacientes'=> $pacientes]);
     }
 
     /**
@@ -59,6 +95,13 @@ class PacienteController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $paciente = paciente::find($id);
+        $paciente->delete();
+
+        $comunas = DB::table('paciente')
+        ->select('*')
+        ->get();
+
+        return view('paciente.index',['paciente'=> $paciente]);
     }
 }

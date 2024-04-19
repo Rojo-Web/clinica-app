@@ -15,7 +15,7 @@
 <body>
     <div class="container">
         <h1>Edit Comuna</h1>
-        <form method="POST" action="{{ route('pacientes.update', ['paciente' => $paciente->codigo]) }}">
+        <form method="POST" action="{{ route('pacientes.update', ['paciente' => $paciente->id]) }}">
             
             @method('put')
             @csrf
@@ -73,7 +73,7 @@
 
             <div class="mt-3">
                 <button type="submit" class="btn btn-primary">Update</button>
-                <a href="{{ route('comunas.index') }}" class="btn btn-warning">Cancel</a>
+                <a href="{{ route('pacientes.index') }}" class="btn btn-warning">Cancel</a>
             </div>
 
         </form>

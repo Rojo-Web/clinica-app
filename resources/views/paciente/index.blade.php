@@ -27,10 +27,8 @@
                             <th scope="col">Dirección</th>
                             <th scope="col">Teléfono</th>
                             <th scope="col">Email</th>
-                        </tr>
-
-                        <a href="{{route('pacientes.edit') }}"
-                            class="btn btn-info">Edit</a>
+                            <th scope="col">Acciones</th>
+                        </tr>  
                     </thead>
                     <tbody>
                         @foreach ($pacientes as $paciente)
@@ -43,7 +41,13 @@
                             <td>{{$paciente->direccion}}</td>
                             <td>{{$paciente->telefono}}</td>
                             <td>{{$paciente->email}}</td>
+                            
+                           <td> <a href="{{route('pacientes.edit',['paciente'=>$paciente->id]) }}"
+                            class="btn btn-info">Edit</a></td>
+                           
                         </tr>
+
+                        
                         @endforeach
                     </tbody>
                 </table>

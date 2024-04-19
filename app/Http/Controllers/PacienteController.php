@@ -23,7 +23,8 @@ class PacienteController extends Controller
      */
     public function create()
     {
-        //
+        return view("paciente.new");
+
     }
 
     /**
@@ -102,6 +103,6 @@ class PacienteController extends Controller
         ->select('*')
         ->get();
 
-        return view('paciente.index',['pacientes'=> $pacientes]);
+        return view('paciente.index',['paciente'=> $pacientes]);
     }
 }

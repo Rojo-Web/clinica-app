@@ -103,6 +103,6 @@ class PacienteController extends Controller
         ->select('*')
         ->get();
 
-        return view('paciente.index',['paciente'=> $pacientes]);
+        return view('paciente.index',['pacientes'=> $pacientes]);
     }
 }

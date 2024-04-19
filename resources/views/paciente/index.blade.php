@@ -28,6 +28,9 @@
                             <th scope="col">Teléfono</th>
                             <th scope="col">Email</th>
                         </tr>
+
+                        <a href="{{route('pacientes.edit') }}"
+                            class="btn btn-info">Edit</a>
                     </thead>
                 </table>
             </div>

@@ -32,6 +32,20 @@
                         <a href="{{route('pacientes.edit') }}"
                             class="btn btn-info">Edit</a>
                     </thead>
+                    <tbody>
+                        @foreach ($pacientes as $paciente)
+                        <tr>
+                            <th scope="row">{{$paciente->codigo}}</th>
+                            <td>{{$paciente->nombre}}</td>
+                            <td>{{$paciente->apellido}}</td>
+                            <td>{{$paciente->fecha_nacimiento}}</td>
+                            <td>{{$paciente->genero}}</td>
+                            <td>{{$paciente->direccion}}</td>
+                            <td>{{$paciente->telefono}}</td>
+                            <td>{{$paciente->email}}</td>
+                        </tr>
+                        @endforeach
+                    </tbody>
                 </table>
             </div>
         </div>

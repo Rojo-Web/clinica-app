@@ -13,8 +13,7 @@ class PacienteController extends Controller
      */
     public function index()
     {
-        $pacientes = DB::table('pacientes')
-        ->select('*')->get();
+        $pacientes = paciente::all();
         return view('paciente.index',['pacientes' => $pacientes]);
     }
 
@@ -24,7 +23,7 @@ class PacienteController extends Controller
     public function create()
     {
         return view('paciente.new');
-    
+
     }
 
     /**
@@ -33,7 +32,7 @@ class PacienteController extends Controller
     public function store(Request $request)
     {
         $paciente = new paciente();
-        $paciente->nombre = $request->nombre;
+        $paciente->nombre = $request->name;
         $paciente->apellido = $request->apellido;
         $paciente->fecha_nacimiento = $request->fecha_nacimiento;
         $paciente->genero = $request->genero;
@@ -43,11 +42,10 @@ class PacienteController extends Controller
         $paciente->id = $request->id;
         $paciente->save();
 
-        $pacientes = DB::table('pacientes')
-            ->select('*')
-            ->get();
+        $pacientes = paciente::all();
 
-        return view('paciente.index',['pacientes'=> $pacientes]);
+
+        return redirect()->route("pacientes.index");
     }
 
     /**
@@ -84,11 +82,9 @@ class PacienteController extends Controller
         $paciente->id = $request->id;
         $paciente->save();
 
-        $pacientes = DB::table('paciente')
-        ->select('*')
-        ->get();
+        $pacientes = paciente::all();
 
-        return view('paciente.index',['pacientes'=> $pacientes]);
+        return redirect()->route("pacientes.index");
     }
 
     /**
@@ -99,10 +95,7 @@ class PacienteController extends Controller
         $paciente = paciente::find($id);
         $paciente->delete();
 
-        $pacientes = DB::table('paciente')
-        ->select('*')
-        ->get();
-
-        return view('paciente.index',['pacientes'=> $pacientes]);
+        $pacientes = paciente::all();
+        return redirect()->route("pacientes.index");
     }
 }

@@ -19,30 +19,22 @@
             @csrf
             <div class="mb-3">
                 <label for="id" class="form-label">Code</label>
-                <input type="text" class="form-control" id="id" aria-describedby="idHelp" name="id" 
+                <input type="text" class="form-control" id="id" aria-describedby="idHelp" name="id"
                     disabled="disabled">
                 <div id="idHelp" class="form-text">Codigo del paciente</div>
             </div>
 
             <div class="mb-3">
                 <label for="name" class="form-label">Paciente</label>
-                <input type="text" class="form-control" id="name" aria-describedby="nameHelp" 
+                <input type="text" class="form-control" id="name" aria-describedby="nameHelp"
                     name="name" placeholder="Comuna name.">
             </div>
 
-            <label for="municipality">Municipality:</label>
-            <select class="form-select" id="municipality" name="code" required>
-                <option selected disabled value="">Choose one...</option>
-                @foreach($pacientes as $paciente)
-                    <option value="{{ $municipio->muni_codi }}">{{ $municipio->muni_nomb }}</option>
-                @endforeach
-            </select>
-
             <div class="mt-3">
                 <button type="submit" class="btn btn-primary">Save</button>
-                <a hrf="{{route('comunas.index')}}" class="btn btn-warning">Cancel</a>
+                <a hrf="{{route('pacientes.index')}}" class="btn btn-warning">Cancel</a>
             </div>
-            
+
         </form>
     </div>
 

@@ -23,8 +23,8 @@ class PacienteController extends Controller
      */
     public function create()
     {
-        //
-    
+        return view("paciente.new");
+
     }
 
     /**

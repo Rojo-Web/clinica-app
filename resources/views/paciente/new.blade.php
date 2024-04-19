@@ -13,36 +13,83 @@
 </head>
 
 <body>
+
     <div class="container">
-        <h1>Agregar Paciente</h1>
+        <div class="col-12 text-center">
+            <div class="alert alert-success" role="alert">
+                <h1 class="mb-0" style="color: green;">Agregar Paciente</h1>
+            </div>
+        </div>
         <form method="POST" action="{{ route('pacientes.store')}}">
             @csrf
             <div class="mb-3">
-                <label for="id" class="form-label">Code</label>
-                <input type="text" class="form-control" id="id" aria-describedby="idHelp" name="id" 
-                    disabled="disabled">
+                <label for="id" class="form-label">Codigo</label>
+                <input type="text" class="form-control" id="id" aria-describedby="idHelp" name="id" disabled="disabled">
                 <div id="idHelp" class="form-text">Codigo del paciente</div>
             </div>
 
+
+
+            <!-- ============================================================================= -->
+
+            <div class="container mt-3">
+    <div class="row align-items-center">
+        <div class="col-md-4">
             <div class="mb-3">
-                <label for="name" class="form-label">Paciente</label>
-                <input type="text" class="form-control" id="name" aria-describedby="nameHelp" 
-                    name="name" placeholder="Comuna name.">
+                <label for="name" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Nombre">
             </div>
-
-            <label for="municipality">Municipality:</label>
-            <select class="form-select" id="municipality" name="code" required>
-                <option selected disabled value="">Choose one...</option>
-                @foreach($pacientes as $paciente)
-                    <option value="{{ $municipio->muni_codi }}">{{ $municipio->muni_nomb }}</option>
-                @endforeach
-            </select>
-
-            <div class="mt-3">
-                <button type="submit" class="btn btn-primary">Save</button>
-                <a hrf="{{route('comunas.index')}}" class="btn btn-warning">Cancel</a>
+        </div>
+        <div class="col-md-4">
+            <div class="mb-3">
+                <label for="apellido" class="form-label">Apellido</label>
+                <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Apellido">
             </div>
-            
+        </div>
+    </div>
+
+    <div class="row align-items-center">
+        <div class="col-md-4">
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="mb-3">
+                <label for="fecha_nacimiento" class="form-label">Fecha de Nacimiento</label>
+                <input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento">
+            </div>
+        </div>
+    </div>
+
+    <div class="row align-items-center">
+        <div class="col-md-4">
+            <div class="mb-3">
+                <label for="direccion" class="form-label">Dirección</label>
+                <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Dirección">
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="mb-3">
+                <label for="telefono" class="form-label">Teléfono</label>
+                <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Teléfono">
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================BOTONES=============================================== -->
+    <div class="row align-items-center mt-3">
+        <div class="col">
+            <button type="submit" class="btn btn-danger">Save</button>
+            <a href="{{ route('pacientes.index') }}" class="btn btn-warning ms-2">Cancel</a>
+        </div>
+    </div>
+</div>
+
+
+
+
         </form>
     </div>
 

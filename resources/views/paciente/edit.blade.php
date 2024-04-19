@@ -14,67 +14,95 @@
 
 <body>
     <div class="container">
-        <h1>Edit Comuna</h1>
+        <div class="col-12 text-center">
+            <div class="alert alert-success" role="alert">
+                <h1 class="mb-0" style="color: green;">Editar Paciente</h1>
+            </div>
+        </div>
         <form method="POST" action="{{ route('pacientes.update', ['paciente' => $paciente->id]) }}">
-            
+
             @method('put')
             @csrf
-            <div class="mb-3">
-                <label for="codigo" class="form-label">Id</label>
-                <input type="text" class="form-control" id="id" aria-describedby="codigoHelp" name="id"
-                    disabled="disabled" value="{{$paciente->id }}">
-                <div id="codigoHelp" class="form-text">Codigo</div>
+
+
+            <div class="row justify-content-center align-items-center">
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Nombre</label>
+                        <input type="text" required class="form-control" id="name" placeholder="Commune name" name="name" value="{{$paciente->nombre }}">
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="codigo" class="form-label">Apellido</label>
+                        <input type="text" class="form-control" id="id" aria-describedby="codigoHelp" name="id" value="{{$paciente->apellido }}">
+                    </div>
+                </div>
             </div>
 
-            <div class="mb-3">
-                <label for="name" class="form-label">Nombre</label>
-                <input type="text" required class="form-control" id="name" placeholder="Commune name"
-                    name="name" value="{{$paciente->nombre }}">
-            </div>
+            <div class="row justify-content-center align-items-center">
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="codigo" class="form-label">Id</label>
+                        <input type="text" class="form-control" id="id" aria-describedby="codigoHelp" name="id" disabled="disabled" value="{{$paciente->id }}">
+                        <div id="codigoHelp" class="form-text">Codigo</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="genero" class="form-label">Genero </label>
+                        <div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" value="" id="generoM" name="generoM">
+                                <label class="form-check-label" for="generoM">M</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" value="" id="generoF" name="generoF">
+                                <label class="form-check-label" for="generoF">F</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-            <div class="mb-3">
-                <label for="codigo" class="form-label">Apellido</label>
-                <input type="text" class="form-control" id="id" aria-describedby="codigoHelp" name="id"
-                    disabled="disabled" value="{{$paciente->apellido }}">
-                <div id="codigoHelp" class="form-text">Codigo</div>
-            </div>
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label for="fecha_nacimiento" class="form-label">Fecha de Nacimiento</label>
+                            <input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento">
+                        </div>
+                    </div>
+                </div>
 
-            <div class="mb-3">
-                <label for="name" class="form-label">F/Nacimiento</label>
-                <input type="text" required class="form-control" id="name" placeholder="Commune name"
-                    name="name" value="{{$paciente->fecha_nacimiento }}">
-            </div>
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label for="direccion" class="form-label">Dirección</label>
+                            <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Dirección">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label for="telefono" class="form-label">Teléfono</label>
+                            <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Teléfono">
+                        </div>
+                    </div>
+                </div>
 
-            <div class="mb-3">
-                <label for="name" class="form-label">Genero</label>
-                <input type="text" required class="form-control" id="name" placeholder="Commune name"
-                    name="name" value="{{$paciente->genero }}">
-            </div>
 
-            <div class="mb-3">
-                <label for="name" class="form-label">Dirección</label>
-                <input type="text" required class="form-control" id="name" placeholder="Commune name"
-                    name="name" value="{{$paciente->direccion }}">
-            </div>
-
-            <div class="mb-3">
-                <label for="name" class="form-label">Telefono</label>
-                <input type="text" required class="form-control" id="name" placeholder="Commune name"
-                    name="name" value="{{$paciente->telefono }}">
-            </div>
-
-            <div class="mb-3">
-                <label for="name" class="form-label">Email</label>
-                <input type="text" required class="form-control" id="name" placeholder="Commune name"
-                    name="name" value="{{$paciente->email }}">
-            </div>
-
-            
-
-            <div class="mt-3">
-                <button type="submit" class="btn btn-primary">Update</button>
-                <a href="{{ route('pacientes.index') }}" class="btn btn-warning">Cancel</a>
-            </div>
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-md-4">
+                <div class="mt-3">
+                    <button type="submit" class="btn btn-primary">Update</button>
+                    <a href="{{ route('pacientes.index') }}" class="btn btn-warning">Cancel</a>
+                </div>
+                </div>
 
         </form>
     </div>

@@ -60,16 +60,17 @@
 
                     <div class="col-md-4">
                         <div class="mb-3">
-                            <label for="genero" class="form-label">Genero </label>
-                            <br>
-                            <label>
-                                <input type="radio" name="genero" value="M">
-                                M
-                            </label>
-                            <label>
-                                <input type="radio" name="genero" value="F">
-                                F
-                            </label>
+                            <label for="genero" class="form-label">Genero  </label>
+                            <div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" value="" id="generoM" name="generoM">
+                                    <label class="form-check-label" for="generoM">M</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" value="" id="generoF" name="generoF">
+                                    <label class="form-check-label" for="generoF">F</label>
+                                </div>
+                            </div>
                         </div>
                     </div>
 

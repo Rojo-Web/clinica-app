@@ -9,26 +9,29 @@
 </head>
 
 <body>
-    <div class="container text-center">>
-        <hr>
-        <span style=" background-color:green;">
-            <h1 id="title" style="text-align: center;">PACIENTES</h1>
-        </span>
-        <hr>
-        <a href="{{ route('pacientes.create')}}" class="btn btn-success"> Add </a>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Id</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Apellido</th>
-                    <th scope="col">F/Nacimiento</th>
-                    <th scope="col">Genero</th>
-                    <th scope="col">Dirección</th>
-                    <th scope="col">Telefono</th>
-                    <th scope="col">Email</th>
-                </tr>
-            </thead>
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-12 text-center">
+                <div class="alert alert-success" role="alert">
+                    <h1 class="mb-0" style="color: green;">PACIENTES</h1>
+                </div>
+                <a href="{{ route('pacientes.create')}}" class="btn btn-success float-start">Agregar </a>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Apellido</th>
+                            <th scope="col">F/Nacimiento</th>
+                            <th scope="col">Genero</th>
+                            <th scope="col">Dirección</th>
+                            <th scope="col">Teléfono</th>
+                            <th scope="col">Email</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
     </div>
 </body>
 

@@ -27,7 +27,7 @@
 
 
             <div class="row justify-content-center align-items-start">
-                <div class="col-md-4" style="margin-right: 360px;">
+                <div class="col-md-4" style="margin-right: 430px;">
                     <div class="mb-3">
                         <label for="id" class="form-label">Id</label>
                         <input type="text" class="form-control" id="id" aria-describedby="idHelp" name="id" disabled="disabled" placeholder="Codigo">
@@ -62,11 +62,11 @@
                             <input type="text" class="form-control" id="email" name="especialidad" placeholder="Especialidad">
                         </div>
                     </div>
-                    
+
                     <div class="col-md-4">
                         <div class="mb-3">
-                            <label for="horario" class="form-label">Horario</label>
-                            <input type="time" class="form-control" id="horario" name="horario">
+                            <label for="horario_fecha" class="form-label">Horario y Fecha</label>
+                            <input type="datetime-local" class="form-control" id="horario_fecha" name="horarios">
                         </div>
                     </div>
 

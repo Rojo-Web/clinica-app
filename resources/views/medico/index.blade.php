@@ -40,7 +40,14 @@
                             <td>{{$medico->telefono}}</td>
                             <td>{{$medico->email}}</td>
 
-                       
+                            <td> <a href="{{route('medicos.edit',['medico'=>$medico->id]) }}" class="btn btn-info">Edit</a>
+
+                                <form action="{{route('medicos.destroy', ['medico' => $medico->id]) }}" method="POST" style="display: inline-block">
+                                    @method('delete')
+                                    @csrf
+                                    <input class="btn btn-danger" type="submit" value="Delete">
+                                </form>
+                            </td>
                         </tr>
 
 

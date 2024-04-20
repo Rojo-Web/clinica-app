@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\cita;
+use Illuminate\Support\Facades\DB;
 
 
 class CitaController extends Controller
@@ -13,7 +14,10 @@ class CitaController extends Controller
      */
     public function index()
     {
-        $citas = cita::all();
+        $citas = DB::table('citas')
+        ->join('pacientes','citas.paciente_id','=','pacientes.id')
+        ->join('medicos','citas.medico_id','=','medicos.id')
+        ->select('citas.*',"pacientes.nombre","medicos.nombre")->get();
         return view('medico.index',['citas' => $citas]);
     }
 
@@ -22,7 +26,13 @@ class CitaController extends Controller
      */
     public function create()
     {
-        return view('cita.new');
+        $pacientes = DB::table('pacientes')
+        ->orderBy('nombre')
+        ->get();
+        $medicos = DB::table('medicos')
+        ->orderBy('nombre')
+        ->get();
+        return view('cita.new',["pacientes"=>$pacientes,"medicos"=>$medicos]);
     }
 
     /**
@@ -56,7 +66,13 @@ class CitaController extends Controller
     public function edit(string $id)
     {
         $cita = cita::find($id);
-        return view('cita.edit',['cita'=> $cita]);
+        $pacientes = DB::table('pacientes')
+        ->orderBy('nombre')
+        ->get();
+        $medicos = DB::table('medicos')
+        ->orderBy('nombre')
+        ->get();
+        return view('cita.edit',['cita'=> $cita,'pacientes'=> $pacientes,'medicos'=> $medicos]);
     }
 
     /**

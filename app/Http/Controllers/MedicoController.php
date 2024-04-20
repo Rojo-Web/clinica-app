@@ -39,9 +39,6 @@ class MedicoController extends Controller
         $medico->id = $request->id;
         $medico->save();
 
-        $medicos = medico::all();
-
-
         return redirect()->route("medicos.index");
     }
 

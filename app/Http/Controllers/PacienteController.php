@@ -79,7 +79,7 @@ class PacienteController extends Controller
         $paciente->direccion = $request->direccion;
         $paciente->telefono = $request->telefono;
         $paciente->email = $request->email;
-        $paciente->id = $request->id;
+        // $paciente->id = $request->id;
         $paciente->save();
 
         $pacientes = paciente::all();

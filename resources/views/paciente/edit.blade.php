@@ -31,14 +31,14 @@
                 <div class="col-md-4">
                     <div class="mb-3">
                         <label for="name" class="form-label">Nombre</label>
-                        <input type="text" required class="form-control" id="name" placeholder="Edit nombre" name="name" value="{{$paciente->nombre}}">
+                        <input type="text" required class="form-control" id="name" placeholder="Edit nombre" name="nombre" value="{{$paciente->nombre}}">
                     </div>
                 </div>
 
                 <div class="col-md-4">
                     <div class="mb-3">
                         <label for="codigo" class="form-label">Apellido</label>
-                        <input type="text" class="form-control" id="last_name" placeholder="Edit apellido" name="last_name" value="{{$paciente->apellido}}">
+                        <input type="text" class="form-control" id="last_name" placeholder="Edit apellido" name="apellido" value="{{$paciente->apellido}}">
                     </div>
                 </div>
             </div>
@@ -59,11 +59,11 @@
                     <label for="genero" class="form-label">Genero </label>
                     <div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" value="" id="generoM" name="genero">
+                            <input class="form-check-input" type="radio" value="M" id="generoM" name="genero">
                             <label class="form-check-label" for="generoM">M</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" value="" id="generoF" name="genero">
+                            <input class="form-check-input" type="radio" value="F" id="generoF" name="genero">
                             <label class="form-check-label" for="generoF">F</label>
                         </div>
                     </div>
@@ -95,7 +95,7 @@
                 <div class="col-md-4">
                     <div class="mb-3">
                         <label for="fecha_nacimiento" class="form-label">Fecha de Nacimiento</label>
-                        <input type="date" class="form-control" id="fecha_nacimiento" name="Editfecha_nacimiento" value="{{$paciente->fecha_nacimiento}}">
+                        <input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento" value="{{$paciente->fecha_nacimiento}}">
                     </div>
                 </div>
             </div>
@@ -104,13 +104,13 @@
                 <div class="col-md-4">
                     <div class="mb-3">
                         <label for="direccion" class="form-label">Dirección</label>
-                        <input type="text" class="form-control" id="Edit_direccion" name="direccion" placeholder="Edit dirección" value="{{$paciente->direccion}}">
+                        <input type="text" class="form-control" id="Edit_direccion" name="direccion"  value="{{$paciente->direccion}}">
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="mb-3">
                         <label for="telefono" class="form-label">Teléfono</label>
-                        <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Teléfono" value="{{$paciente->telefono}}">
+                        <input type="text" class="form-control" id="telefono" name="telefono"  value="{{$paciente->telefono}}">
                     </div>
                 </div>
             </div>

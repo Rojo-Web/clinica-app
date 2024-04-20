@@ -28,12 +28,12 @@
                             <th scope="col">Teléfono</th>
                             <th scope="col">Email</th>
                             <th scope="col">Acciones</th>
-                        </tr>  
+                        </tr>
                     </thead>
                     <tbody>
                         @foreach ($pacientes as $paciente)
                         <tr>
-                            <th scope="row">{{$paciente->codigo}}</th>
+                            <th scope="row">{{$paciente->id}}</th>
                             <td>{{$paciente->nombre}}</td>
                             <td>{{$paciente->apellido}}</td>
                             <td>{{$paciente->fecha_nacimiento}}</td>
@@ -41,13 +41,19 @@
                             <td>{{$paciente->direccion}}</td>
                             <td>{{$paciente->telefono}}</td>
                             <td>{{$paciente->email}}</td>
-                            
-                           <td> <a href="{{route('pacientes.edit',['paciente'=>$paciente->id]) }}"
-                            class="btn btn-info">Edit</a></td>
-                           
+
+                            <td> <a href="{{route('pacientes.edit',['paciente'=>$paciente->id]) }}" class="btn btn-info">Edit</a>
+
+                                <form action="{{route('pacientes.destroy', ['paciente' => $paciente->id]) }}" method="POST" style="display: inline-block">
+                                    @method('delete')
+                                    @csrf
+                                    <input class="btn btn-danger" type="submit" value="Delete">
+                                </form>
+                            </td>
+
                         </tr>
 
-                        
+
                         @endforeach
                     </tbody>
                 </table>

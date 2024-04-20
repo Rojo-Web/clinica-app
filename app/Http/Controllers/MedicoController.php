@@ -68,8 +68,8 @@ class MedicoController extends Controller
 
         $medico->nombre = $request->nombre;
         $medico->apellido = $request->apellido;
-        $medico->fecha_nacimiento = $request->especialidad;
-        $medico->genero = $request->horarios;
+        $medico->especialidad = $request->especialidad;
+        $medico->horarios = $request->horarios;
         $medico->telefono = $request->telefono;
         $medico->email = $request->email;
         $medico->save();

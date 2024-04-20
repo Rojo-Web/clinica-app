@@ -63,11 +63,11 @@
                         <label for="genero" class="form-label">Genero </label>
                         <div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" value="" id="generoM" name="genero">
+                                <input class="form-check-input" type="radio" value="M" id="generoM" name="genero">
                                 <label class="form-check-label" for="generoM">M</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" value="" id="generoF" name="genero">
+                                <input class="form-check-input" type="radio" value="F" id="generoF" name="genero">
                                 <label class="form-check-label" for="generoF">F</label>
                             </div>
                         </div>

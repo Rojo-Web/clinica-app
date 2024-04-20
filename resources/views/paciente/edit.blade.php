@@ -19,24 +19,26 @@
                 <h1 class="mb-0" style="color: green;">Editar Paciente</h1>
             </div>
         </div>
+        <p></p>
+        <p></p>
         <form method="POST" action="{{ route('pacientes.update', ['paciente' => $paciente->id]) }}">
 
             @method('put')
             @csrf
-
-
+            <hr>
+            <br>
             <div class="row justify-content-center align-items-center">
                 <div class="col-md-4">
                     <div class="mb-3">
                         <label for="name" class="form-label">Nombre</label>
-                        <input type="text" required class="form-control" id="name" placeholder="Commune name" name="name" value="{{$paciente->nombre }}">
+                        <input type="text" required class="form-control" id="name" placeholder="Edit nombre" name="name" value="{{$paciente->nombre}}">
                     </div>
                 </div>
 
                 <div class="col-md-4">
                     <div class="mb-3">
                         <label for="codigo" class="form-label">Apellido</label>
-                        <input type="text" class="form-control" id="id" aria-describedby="codigoHelp" name="id" value="{{$paciente->apellido }}">
+                        <input type="text" class="form-control" id="last_name" placeholder="Edit apellido" name="last_name" value="{{$paciente->apellido}}">
                     </div>
                 </div>
             </div>
@@ -45,66 +47,87 @@
                 <div class="col-md-4">
                     <div class="mb-3">
                         <label for="codigo" class="form-label">Id</label>
-                        <input type="text" class="form-control" id="id" aria-describedby="codigoHelp" name="id" disabled="disabled" value="{{$paciente->id }}">
+                        <input type="text" class="form-control" id="id" aria-describedby="codigoHelp" name="id" disabled="disabled" value="{{$paciente->id}}">
                         <div id="codigoHelp" class="form-text">Codigo</div>
+                    </div>
+                </div>
+
+                <!-- ============================================================================================== -->
+
+                <div class="col-md-4">
+                <div class="mb-3">
+                    <label for="genero" class="form-label">Genero </label>
+                    <div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" value="" id="generoM" name="genero">
+                            <label class="form-check-label" for="generoM">M</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" value="" id="generoF" name="genero">
+                            <label class="form-check-label" for="generoF">F</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <script>
+                function toggleGenero(selectedId) {
+                    const generoM = document.getElementById('generoM');
+                    const generoF = document.getElementById('generoF');
+
+                    if (selectedId === 'generoM' && generoM.checked) {
+                        generoF.checked = false;
+                    } else if (selectedId === 'generoF' && generoF.checked) {
+                        generoM.checked = false;
+                    }
+                }
+            </script>
+
+            <!-- ================================================================================================ -->
+            <div class="row justify-content-center align-items-center">
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Edit email" value="{{$paciente->email}}">
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="mb-3">
-                        <label for="genero" class="form-label">Genero </label>
-                        <div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" value="" id="generoM" name="generoM">
-                                <label class="form-check-label" for="generoM">M</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" value="" id="generoF" name="generoF">
-                                <label class="form-check-label" for="generoF">F</label>
-                            </div>
-                        </div>
+                        <label for="fecha_nacimiento" class="form-label">Fecha de Nacimiento</label>
+                        <input type="date" class="form-control" id="fecha_nacimiento" name="Editfecha_nacimiento" value="{{$paciente->fecha_nacimiento}}">
                     </div>
                 </div>
+            </div>
 
-                <div class="row justify-content-center align-items-center">
-                    <div class="col-md-4">
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" name="email" placeholder="Email">
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="mb-3">
-                            <label for="fecha_nacimiento" class="form-label">Fecha de Nacimiento</label>
-                            <input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento">
-                        </div>
+            <div class="row justify-content-center align-items-center">
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="direccion" class="form-label">Dirección</label>
+                        <input type="text" class="form-control" id="Edit_direccion" name="direccion" placeholder="Edit dirección" value="{{$paciente->direccion}}">
                     </div>
                 </div>
-
-                <div class="row justify-content-center align-items-center">
-                    <div class="col-md-4">
-                        <div class="mb-3">
-                            <label for="direccion" class="form-label">Dirección</label>
-                            <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Dirección">
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="mb-3">
-                            <label for="telefono" class="form-label">Teléfono</label>
-                            <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Teléfono">
-                        </div>
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="telefono" class="form-label">Teléfono</label>
+                        <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Teléfono" value="{{$paciente->telefono}}">
                     </div>
                 </div>
+            </div>
 
 
-                <div class="row justify-content-center align-items-center">
-                    <div class="col-md-4">
-                <div class="mt-3">
-                    <button type="submit" class="btn btn-primary">Update</button>
-                    <a href="{{ route('pacientes.index') }}" class="btn btn-warning">Cancel</a>
+            <div id="botones" class="row justify-content-start align-items-start" style=" width: 66%;">
+                <div class="col-md-4">
+                    <div class="mt-3">
+                        <button type="submit" class="btn btn-primary">Update</button>
+                        <a href="{{ route('pacientes.index') }}" class="btn btn-warning">Cancel</a>
+                    </div>
                 </div>
-                </div>
+            </div>
+    </div>
 
-        </form>
+
+    </form>
     </div>
 
     <!-- Optional JavaScript; choose one of the two! -->

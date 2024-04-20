@@ -22,15 +22,17 @@
         </div>
         <form method="POST" action="{{ route('pacientes.store')}}">
             @csrf
-            <div class="row">
-
-
+            
+            <hr>
+            <br>
+            <div class="row justify-content-center align-items-center">
                 <div class="col-md-4">
                     <div class="mb-3">
                         <label for="name" class="form-label">Nombre</label>
                         <input type="text" class="form-control" id="name" name="name" placeholder="Nombre">
                     </div>
                 </div>
+
                 <div class="col-md-4">
                     <div class="mb-3">
                         <label for="apellido" class="form-label">Apellido</label>
@@ -45,66 +47,78 @@
 
             <!-- ============================================================================= -->
 
-            <div class="container mt-2">
-                <div class="row align-items-center">
 
-
-                    <div class="col-md-4">
-                        <div class="mb-3">
-                            <label for="id" class="form-label">Codigo</label>
-                            <input type="text" class="form-control" id="id" aria-describedby="idHelp" name="id" disabled="disabled" placeholder="Codigo">
-                            <!-- <div id="idHelp" class="form-text">Codigo del paciente</div> -->
-                        </div>
+            <div class="row justify-content-center align-items-center">
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="id" class="form-label">Id</label>
+                        <input type="text" class="form-control" id="id" aria-describedby="idHelp" name="id" disabled="disabled" placeholder="Codigo">
+                        <!-- <div id="idHelp" class="form-text">Codigo del paciente</div> -->
                     </div>
+                </div>
 
 
-                    <div class="col-md-4">
-                        <div class="mb-3">
-                            <label for="genero" class="form-label">Genero  </label>
-                            <div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" value="" id="generoM" name="generoM">
-                                    <label class="form-check-label" for="generoM">M</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" value="" id="generoF" name="generoF">
-                                    <label class="form-check-label" for="generoF">F</label>
-                                </div>
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="genero" class="form-label">Genero </label>
+                        <div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" value="" id="generoM" name="genero">
+                                <label class="form-check-label" for="generoM">M</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" value="" id="generoF" name="genero">
+                                <label class="form-check-label" for="generoF">F</label>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
 
-                    <div class="row align-items-center">
-                        <div class="col-md-4">
-                            <div class="mb-3">
-                                <label for="email" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="email" name="email" placeholder="Email">
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="mb-3">
-                                <label for="fecha_nacimiento" class="form-label">Fecha de Nacimiento</label>
-                                <input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento">
-                            </div>
-                        </div>
+            <script>
+                function toggleGenero(selectedId) {
+                    const generoM = document.getElementById('generoM');
+                    const generoF = document.getElementById('generoF');
+
+                    if (selectedId === 'generoM' && generoM.checked) {
+                        generoF.checked = false;
+                    } else if (selectedId === 'generoF' && generoF.checked) {
+                        generoM.checked = false;
+                    }
+                }
+            </script>
+            <!-- ================================================================================================ -->
+
+            <div class="row justify-content-center align-items-center">
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Email">
                     </div>
-
-                    <div class="row align-items-center">
-                        <div class="col-md-4">
-                            <div class="mb-3">
-                                <label for="direccion" class="form-label">Dirección</label>
-                                <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Dirección">
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="mb-3">
-                                <label for="telefono" class="form-label">Teléfono</label>
-                                <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Teléfono">
-                            </div>
-                        </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="fecha_nacimiento" class="form-label">Fecha de Nacimiento</label>
+                        <input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento">
                     </div>
+                </div>
+            </div>
 
-                    <!-- ============================BOTONES=============================================== -->
+            <div class="row justify-content-center align-items-center">
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="direccion" class="form-label">Dirección</label>
+                        <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Dirección">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="telefono" class="form-label">Teléfono</label>
+                        <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Teléfono">
+                    </div>
+                </div>
+
+                <div id="botones" class="row justify-content-start align-items-start" style=" width: 66%;">
                     <div class="row align-items-center mt-3">
                         <div class="col">
                             <button type="submit" class="btn btn-danger">Save</button>
@@ -112,6 +126,10 @@
                         </div>
                     </div>
                 </div>
+
+            </div>
+
+            <!-- ============================BOTONES=============================================== -->
 
 
 

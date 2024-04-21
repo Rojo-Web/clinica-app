@@ -35,9 +35,10 @@
                             <td>{{$cita->medico}}</td>
                             <td>{{$cita->F/Cita}}</td>
                             <td>{{$cita->Motivo/Consulta}}</td>
-                            
+                            <td> <a href="{{route('citas.edit',['cita'=>$cita->id]) }}" class="btn btn-info">Edit</a>
 
-                            
+                                
+                            </td>
                         </tr>
 
 

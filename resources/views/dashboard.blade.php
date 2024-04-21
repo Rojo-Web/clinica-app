@@ -46,7 +46,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Citas</h5>
                             <p class="card-text">Gestiona los medicos para las citas.</p>
-                            <a href="#" class="btn btn-success">Ingresar</a>
+                            <a href="{{ route('citas.index')}}" class="btn btn-success">Ingresar</a>
                         </div>
                     </div>
                 </div>

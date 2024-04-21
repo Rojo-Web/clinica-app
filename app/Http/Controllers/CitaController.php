@@ -17,7 +17,7 @@ class CitaController extends Controller
         $citas = DB::table('citas')
         ->join('pacientes','citas.paciente_id','=','pacientes.id')
         ->join('medicos','citas.medico_id','=','medicos.id')
-        ->select('citas.*',"pacientes.nombre","medicos.nombre")->get();
+        ->select('citas.*',"pacientes.nombre as nombreP","medicos.nombre as nombreM")->get();
         return view('cita.index',['citas' => $citas]);
     }
 
@@ -41,11 +41,14 @@ class CitaController extends Controller
     public function store(Request $request)
     {
         $cita = new cita();
-        $cita->fecha_cita = $request->fecha_cita;
-        $cita->hora_cita = $request->hora_cita;
+        $timestamp = $request->FechaCita;
+        $fecha = date('Y-m-d', strtotime($timestamp));
+
+        $cita->fecha_cita = $fecha;
+        $cita->hora_cita = $request->FechaCita;
         $cita->motivo_consulta = $request->motivo_consulta;
-        $cita->paciente_id = $request->paciente_id;
-        $cita->medico_id = $request->medico_id;
+        $cita->paciente_id = $request->paciente;
+        $cita->medico_id = $request->medico;
         $cita->id = $request->id;
         $cita->save();
 
@@ -82,11 +85,14 @@ class CitaController extends Controller
     {
         $cita = cita::find($id);
 
-        $cita->fecha_cita = $request->fecha_cita;
-        $cita->hora_cita = $request->hora_cita;
+        $timestamp = $request->FechaCita;
+        $fecha = date('Y-m-d', strtotime($timestamp));
+
+        $cita->fecha_cita = $fecha;
+        $cita->hora_cita = $request->FechaCita;
         $cita->motivo_consulta = $request->motivo_consulta;
-        $cita->paciente_id = $request->paciente_id;
-        $cita->medico_id = $request->medico_id;
+        $cita->paciente_id = $request->paciente;
+        $cita->medico_id = $request->medico;
         $cita->save();
 
         return redirect()->route("citas.index");

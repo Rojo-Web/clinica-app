@@ -38,7 +38,7 @@
                 <div class="col-md-4">
                     <div class="mb-3">
                         <label for="horario_fecha" class="form-label">Fecha/Cita</label>
-                        <input type="datetime-local" class="form-control" id="Fecha/Cita" name="Fecha/Cita">
+                        <input type="datetime-local" class="form-control" id="Fecha/Cita" name="FechaCita">
                     </div>
                 </div>
             </div>
@@ -46,12 +46,12 @@
             <div class="row justify-content-center align-items-center">
                 <div class="col-md-4">
                     <div class="mb-3">
-                        <label for="medico" class="form-label">Médico</label>
-                        <select class="form-select" id="medico" name="medico_id">
-                            <option selected disabled>Selecciona un médico</option>
-                            <option value="1">Médico 1</option>
-                            <option value="2">Médico 2</option>
-                            <option value="3">Médico 3</option>
+                        <label for="medicos">Medico</label>
+                        <select class="form-select" id="medico" name="medico" required>
+                            <Option selected disabled value="">Selecciona un médico</Option>
+                            @foreach ($medicos as $medico)
+                            <option value="{{$medico->id}}">Doctor {{$medico->nombre}}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>
@@ -59,13 +59,12 @@
 
                 <div class="col-md-4">
                     <div class="mb-3">
-                        <label for="paciente_id" class="form-label">Paciente</label>
-                        <select class="form-select" id="paciente_id" name="paciente_id">
-                            <option selected disabled>Selecciona un paciente</option>
-                            <option value="1">Paciente 1</option>
-                            <option value="2">Paciente 2</option>
-                            <option value="3">Paciente 3</option>
-                            <!-- Agrega más opciones según tus pacientes -->
+                        <label for="pacientes">Paciente</label>
+                        <select class="form-select" id="paciente" name="paciente" required>
+                            <Option selected disabled value="">Selecciona un paciente</Option>
+                            @foreach ($pacientes as $paciente)
+                            <option value="{{$paciente->id}}"> {{$paciente->nombre}} {{$paciente->apellido}} </option>
+                            @endforeach
                         </select>
                     </div>
                     <!-- <div class="mb-3">

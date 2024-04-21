@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PacienteController;
 use App\Http\Controllers\MedicoController;
+use App\Http\Controllers\CitaController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -33,6 +34,14 @@ Route::middleware('auth')->group(function () {
     Route::delete('/medicos/{medico}', [MedicoController::class, 'destroy'])->name('medicos.destroy');
     Route::put('/medicos/{medico}', [MedicoController::class, 'update'])->name('medicos.update');
     Route::get('/medicos/{medico}/edit', [MedicoController::class, 'edit'])->name('medicos.edit');
+
+    // Rutas del controlador de citas
+    Route::get('/citas', [CitaController::class, 'index'])->name('citas.index');
+    Route::post('/citas', [CitaController::class, 'store'])->name('citas.store');
+    Route::get('/citas/create', [CitaController::class, 'create'])->name('citas.create');
+    Route::delete('/citas/{cita}', [CitaController::class, 'destroy'])->name('citas.destroy');
+    Route::put('/citas/{cita}', [CitaController::class, 'update'])->name('citas.update');
+    Route::get('/citas/{cita}/edit', [CitaController::class, 'edit'])->name('citas.edit');
 });
 
 

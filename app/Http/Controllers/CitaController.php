@@ -18,7 +18,7 @@ class CitaController extends Controller
         ->join('pacientes','citas.paciente_id','=','pacientes.id')
         ->join('medicos','citas.medico_id','=','medicos.id')
         ->select('citas.*',"pacientes.nombre","medicos.nombre")->get();
-        return view('medico.index',['citas' => $citas]);
+        return view('cita.index',['citas' => $citas]);
     }
 
     /**
